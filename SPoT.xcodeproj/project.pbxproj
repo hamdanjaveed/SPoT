@@ -17,6 +17,7 @@
 		ACC1AE4C17485B4400EBFDF6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACC1AE4B17485B4400EBFDF6 /* Default@2x.png */; };
 		ACC1AE4E17485B4400EBFDF6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACC1AE4D17485B4400EBFDF6 /* Default-568h@2x.png */; };
 		ACC1AE5117485B4400EBFDF6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACC1AE4F17485B4400EBFDF6 /* MainStoryboard.storyboard */; };
+		ACC1AE5E1748634500EBFDF6 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC1AE5D1748634500EBFDF6 /* FlickrFetcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,9 @@
 		ACC1AE4B17485B4400EBFDF6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		ACC1AE4D17485B4400EBFDF6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ACC1AE5017485B4400EBFDF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		ACC1AE5B1748634500EBFDF6 /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
+		ACC1AE5C1748634500EBFDF6 /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
+		ACC1AE5D1748634500EBFDF6 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 		ACC1AE3D17485B4400EBFDF6 /* SPoT */ = {
 			isa = PBXGroup;
 			children = (
+				ACC1AE5A1748634500EBFDF6 /* FlickrFetcher */,
 				ACC1AE4F17485B4400EBFDF6 /* MainStoryboard.storyboard */,
 				ACC1AE3E17485B4400EBFDF6 /* Supporting Files */,
 			);
@@ -100,6 +105,16 @@
 				ACC1AE4D17485B4400EBFDF6 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ACC1AE5A1748634500EBFDF6 /* FlickrFetcher */ = {
+			isa = PBXGroup;
+			children = (
+				ACC1AE5B1748634500EBFDF6 /* FlickrAPIKey.h */,
+				ACC1AE5C1748634500EBFDF6 /* FlickrFetcher.h */,
+				ACC1AE5D1748634500EBFDF6 /* FlickrFetcher.m */,
+			);
+			path = FlickrFetcher;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +185,7 @@
 			files = (
 				ACC1AE4417485B4400EBFDF6 /* main.m in Sources */,
 				ACC1AE4817485B4400EBFDF6 /* AppDelegate.m in Sources */,
+				ACC1AE5E1748634500EBFDF6 /* FlickrFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
