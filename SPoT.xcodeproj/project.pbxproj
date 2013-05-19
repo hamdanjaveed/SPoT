@@ -17,7 +17,6 @@
 		ACC1AE4C17485B4400EBFDF6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACC1AE4B17485B4400EBFDF6 /* Default@2x.png */; };
 		ACC1AE4E17485B4400EBFDF6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = ACC1AE4D17485B4400EBFDF6 /* Default-568h@2x.png */; };
 		ACC1AE5117485B4400EBFDF6 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACC1AE4F17485B4400EBFDF6 /* MainStoryboard.storyboard */; };
-		ACC1AE5417485B4400EBFDF6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC1AE5317485B4400EBFDF6 /* ViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +34,6 @@
 		ACC1AE4B17485B4400EBFDF6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		ACC1AE4D17485B4400EBFDF6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		ACC1AE5017485B4400EBFDF6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		ACC1AE5217485B4400EBFDF6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		ACC1AE5317485B4400EBFDF6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +80,7 @@
 		ACC1AE3D17485B4400EBFDF6 /* SPoT */ = {
 			isa = PBXGroup;
 			children = (
-				ACC1AE4617485B4400EBFDF6 /* AppDelegate.h */,
-				ACC1AE4717485B4400EBFDF6 /* AppDelegate.m */,
 				ACC1AE4F17485B4400EBFDF6 /* MainStoryboard.storyboard */,
-				ACC1AE5217485B4400EBFDF6 /* ViewController.h */,
-				ACC1AE5317485B4400EBFDF6 /* ViewController.m */,
 				ACC1AE3E17485B4400EBFDF6 /* Supporting Files */,
 			);
 			path = SPoT;
@@ -96,6 +89,8 @@
 		ACC1AE3E17485B4400EBFDF6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ACC1AE4617485B4400EBFDF6 /* AppDelegate.h */,
+				ACC1AE4717485B4400EBFDF6 /* AppDelegate.m */,
 				ACC1AE3F17485B4400EBFDF6 /* SPoT-Info.plist */,
 				ACC1AE4017485B4400EBFDF6 /* InfoPlist.strings */,
 				ACC1AE4317485B4400EBFDF6 /* main.m */,
@@ -175,7 +170,6 @@
 			files = (
 				ACC1AE4417485B4400EBFDF6 /* main.m in Sources */,
 				ACC1AE4817485B4400EBFDF6 /* AppDelegate.m in Sources */,
-				ACC1AE5417485B4400EBFDF6 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +292,7 @@
 				ACC1AE5917485B4400EBFDF6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
