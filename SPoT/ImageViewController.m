@@ -27,16 +27,22 @@
         self.imageView.image = nil;
         
         // get the image and initialize the image view
-        NSData *imageData = [NSData dataWithContentsOfURL:self.imageURL];
-        UIImage *image = [UIImage imageWithData:imageData];
-        if (image) {
-            // setup the image view
-            self.imageView.image = image;
-            self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-            
-            // set the scroll view's content size to match the image
-            self.scrollView.contentSize = image.size;
-        }
+        dispatch_queue_t getImageQ = dispatch_queue_create("load image", NULL);
+        dispatch_async(getImageQ, ^{
+            NSURL *url = self.imageURL;
+            NSData *imageData = [NSData dataWithContentsOfURL:self.imageURL];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIImage *image = [UIImage imageWithData:imageData];
+                if (image && self.imageURL == url) {
+                    // setup the image view
+                    self.imageView.image = image;
+                    self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+                    
+                    // set the scroll view's content size to match the image
+                    self.scrollView.contentSize = image.size;
+                }
+            });
+        });
     }
 }
 
