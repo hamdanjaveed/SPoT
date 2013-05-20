@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Recent Images Table View Controller-->
+        <!--Recent Images Table View Controller - Recently Viewed-->
         <scene sceneID="taG-jC-Iw7">
             <objects>
                 <tableViewController id="jRr-BF-gWU" customClass="RecentImagesTableViewController" sceneMemberID="viewController">
@@ -13,14 +13,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recent Image Cell" id="ycA-kb-59I">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recent Image Cell" textLabel="Zn3-vk-9k0" detailTextLabel="GA4-NI-PbV" style="IBUITableViewCellStyleSubtitle" id="ycA-kb-59I">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zn3-vk-9k0">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GA4-NI-PbV">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="Sbi-RV-lGm" kind="push" identifier="Recent Show image" id="RZM-lb-HHP"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -28,10 +43,7 @@
                             <outlet property="delegate" destination="jRr-BF-gWU" id="7OM-of-JjY"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="shs-he-vX8"/>
-                    <connections>
-                        <segue destination="Sbi-RV-lGm" kind="push" identifier="Recent Show image" id="VGY-AL-Trs"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Recently Viewed" id="shs-he-vX8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CuW-as-xen" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -238,6 +250,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="gUy-QX-mm0"/>
+        <segue reference="RZM-lb-HHP"/>
     </inferredMetricsTieBreakers>
 </document>
