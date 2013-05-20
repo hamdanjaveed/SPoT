@@ -17,6 +17,22 @@
 
 @implementation FlickrImagesTableViewController
 
+@synthesize photos = _photos;
+
+- (void)viewDidLoad {
+    [self loadLatestStanfordPhotos];
+}
+
+- (void)loadLatestStanfordPhotos {
+    dispatch_queue_t loadPhotosQ = dispatch_queue_create("load photos queue", NULL);
+    dispatch_async(loadPhotosQ, ^{
+        NSArray *latestStanfordPhotos = [FlickrFetcher stanfordPhotos];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.photos = latestStanfordPhotos;
+        });
+    });
+}
+
 - (NSMutableArray *)uniqueTags {
     if (!_uniqueTags) {
         _uniqueTags = [[NSMutableArray alloc] init];
@@ -36,9 +52,15 @@
     return [[dictionary objectForKey:FLICKR_TAGS] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]];
 }
 
+- (void)setPhotos:(NSArray *)photos {
+    _photos = photos;
+    self.uniqueTags = nil;
+    [self.tableView reloadData];
+}
+
 - (NSArray *)photos {
     if (!_photos) {
-        _photos = [FlickrFetcher stanfordPhotos];
+        _photos = [[NSArray alloc] init];
     }
     return _photos;
 }
