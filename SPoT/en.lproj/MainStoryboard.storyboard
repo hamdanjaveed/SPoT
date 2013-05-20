@@ -50,7 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3sc-qV-eav" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="851" y="-338"/>
+            <point key="canvasLocation" x="1375" y="-338"/>
         </scene>
         <!--Flickr Images Table View Controller - Browse Images-->
         <scene sceneID="MPu-aO-HgK">
@@ -82,7 +82,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <connections>
-                                    <segue destination="Sbi-RV-lGm" kind="push" identifier="Browse Show Image" id="J1k-jm-hpG"/>
+                                    <segue destination="YO8-KV-Ic5" kind="push" identifier="Show Images With Tag" id="MCR-Kr-Z69"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -96,6 +96,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mH6-Q5-XyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="316" y="-665"/>
+        </scene>
+        <!--Image With Tag Table View Controller-->
+        <scene sceneID="y78-Bz-Hu3">
+            <objects>
+                <tableViewController id="YO8-KV-Ic5" customClass="ImageWithTagTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dvZ-nv-dly">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Image With Tag Cell" textLabel="IPV-aH-1uP" detailTextLabel="Zc8-VF-OMH" style="IBUITableViewCellStyleSubtitle" id="x7W-2M-Slc">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPV-aH-1uP">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zc8-VF-OMH">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="Sbi-RV-lGm" kind="push" identifier="Browse Show Image" id="gUy-QX-mm0"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="YO8-KV-Ic5" id="keE-g9-te9"/>
+                            <outlet property="delegate" destination="YO8-KV-Ic5" id="7dV-WU-ONG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="wMj-87-Z4f"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ncs-of-W3F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="843" y="-665"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="q7g-Tb-cd5">
@@ -165,6 +210,9 @@
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
+        <class className="ImageWithTagTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageWithTagTableViewController.h"/>
+        </class>
         <class className="RecentImagesTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentImagesTableViewController.h"/>
         </class>
@@ -175,6 +223,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="J1k-jm-hpG"/>
+        <segue reference="gUy-QX-mm0"/>
     </inferredMetricsTieBreakers>
 </document>

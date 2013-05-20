@@ -8,6 +8,7 @@
 
 #import "FlickrImagesTableViewController.h"
 #import "FlickrFetcher.h"
+#import "ImageWithTagTableViewController.h"
 
 @interface FlickrImagesTableViewController ()
 @property (strong, nonatomic) NSArray *photos;
@@ -73,6 +74,28 @@
         }
     }
     return count;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        UITableViewCell *cell = (UITableViewCell *)sender;
+        NSArray *photos = [self photosWithTag:[cell.textLabel.text lowercaseString]];
+        ImageWithTagTableViewController *destination = (ImageWithTagTableViewController *)segue.destinationViewController;
+        destination.photos = photos;
+        destination.title = cell.textLabel.text;
+    }
+}
+
+- (NSArray *)photosWithTag:(NSString *)tag {
+    NSMutableArray *photos = [[NSMutableArray alloc] init];
+    for (NSDictionary *dictionary in self.photos) {
+        NSString *tags = [dictionary objectForKey:FLICKR_TAGS];
+        NSRange range = [tags rangeOfString:tag];
+        if (range.location != NSNotFound) {
+            [photos addObject:dictionary];
+        }
+    }
+    return [photos copy];
 }
 
 @end

@@ -10,6 +10,7 @@
 		AC580BCE17492BCB001C585D /* FlickrImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC580BCD17492BCB001C585D /* FlickrImagesTableViewController.m */; };
 		AC580BD117492C19001C585D /* RecentImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC580BD017492C19001C585D /* RecentImagesTableViewController.m */; };
 		AC952B03174A0FE20070FB16 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC952B02174A0FE20070FB16 /* ImageViewController.m */; };
+		AC952B06174A19910070FB16 /* ImageWithTagTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC952B05174A19910070FB16 /* ImageWithTagTableViewController.m */; };
 		ACC1AE3817485B4400EBFDF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC1AE3717485B4400EBFDF6 /* UIKit.framework */; };
 		ACC1AE3A17485B4400EBFDF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC1AE3917485B4400EBFDF6 /* Foundation.framework */; };
 		ACC1AE3C17485B4400EBFDF6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC1AE3B17485B4400EBFDF6 /* CoreGraphics.framework */; };
@@ -30,6 +31,8 @@
 		AC580BD017492C19001C585D /* RecentImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentImagesTableViewController.m; sourceTree = "<group>"; };
 		AC952B01174A0FE20070FB16 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		AC952B02174A0FE20070FB16 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		AC952B04174A19910070FB16 /* ImageWithTagTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageWithTagTableViewController.h; sourceTree = "<group>"; };
+		AC952B05174A19910070FB16 /* ImageWithTagTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageWithTagTableViewController.m; sourceTree = "<group>"; };
 		ACC1AE3417485B4400EBFDF6 /* SPoT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPoT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC1AE3717485B4400EBFDF6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ACC1AE3917485B4400EBFDF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -93,6 +96,8 @@
 		ACC1AE3D17485B4400EBFDF6 /* SPoT */ = {
 			isa = PBXGroup;
 			children = (
+				AC952B04174A19910070FB16 /* ImageWithTagTableViewController.h */,
+				AC952B05174A19910070FB16 /* ImageWithTagTableViewController.m */,
 				ACC1AE5A1748634500EBFDF6 /* FlickrFetcher */,
 				ACC1AE4F17485B4400EBFDF6 /* MainStoryboard.storyboard */,
 				AC952B01174A0FE20070FB16 /* ImageViewController.h */,
@@ -204,6 +209,7 @@
 				AC580BCE17492BCB001C585D /* FlickrImagesTableViewController.m in Sources */,
 				AC580BD117492C19001C585D /* RecentImagesTableViewController.m in Sources */,
 				AC952B03174A0FE20070FB16 /* ImageViewController.m in Sources */,
+				AC952B06174A19910070FB16 /* ImageWithTagTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
