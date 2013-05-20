@@ -19,20 +19,6 @@
 
 @synthesize photos = _photos;
 
-- (void)viewDidLoad {
-    [self loadLatestStanfordPhotos];
-}
-
-- (void)loadLatestStanfordPhotos {
-    dispatch_queue_t loadPhotosQ = dispatch_queue_create("load photos queue", NULL);
-    dispatch_async(loadPhotosQ, ^{
-        NSArray *latestStanfordPhotos = [FlickrFetcher stanfordPhotos];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            self.photos = latestStanfordPhotos;
-        });
-    });
-}
-
 - (NSMutableArray *)uniqueTags {
     if (!_uniqueTags) {
         _uniqueTags = [[NSMutableArray alloc] init];
@@ -60,7 +46,13 @@
 
 - (NSArray *)photos {
     if (!_photos) {
-        _photos = [[NSArray alloc] init];
+        dispatch_queue_t loadPhotosQ = dispatch_queue_create("load photos queue", NULL);
+        dispatch_async(loadPhotosQ, ^{
+            NSArray *latestStanfordPhotos = [FlickrFetcher stanfordPhotos];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self setPhotos:latestStanfordPhotos];
+            });
+        });
     }
     return _photos;
 }
