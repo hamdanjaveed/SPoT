@@ -7,6 +7,7 @@
 //
 
 #import "ImageWithTagTableViewController.h"
+#import "FlickrFetcher.h"
 
 @interface ImageWithTagTableViewController ()
 
@@ -17,15 +18,15 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // TODO
-    return 0;
+    return [self.photos count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Image With Tag Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    cell.textLabel.text = [[self.photos[indexPath.row] objectForKey:FLICKR_PHOTO_TITLE] capitalizedString];
+    cell.detailTextLabel.text = [[self.photos[indexPath.row] valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] capitalizedString];
     
     return cell;
 }
