@@ -34,7 +34,7 @@
             </objects>
             <point key="canvasLocation" x="316" y="-12"/>
         </scene>
-        <!--Flickr Images Table View Controller-->
+        <!--Flickr Images Table View Controller - Browse Images-->
         <scene sceneID="MPu-aO-HgK">
             <objects>
                 <tableViewController id="Owt-mx-K4q" customClass="FlickrImagesTableViewController" sceneMemberID="viewController">
@@ -58,7 +58,7 @@
                             <outlet property="delegate" destination="Owt-mx-K4q" id="cZW-Wr-E29"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="i7D-ql-XGr"/>
+                    <navigationItem key="navigationItem" title="Browse Images" id="i7D-ql-XGr"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mH6-Q5-XyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
