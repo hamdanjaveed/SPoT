@@ -18,23 +18,18 @@
 - (NSMutableArray *)uniqueTags {
     if (!_uniqueTags) {
         _uniqueTags = [[NSMutableArray alloc] init];
+        for (NSDictionary *dictionary in [FlickrFetcher stanfordPhotos]) {
+            NSArray *tagArray = [[dictionary objectForKey:FLICKR_TAGS] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]];
+            for (NSString *tag in tagArray) {
+                if (![_uniqueTags containsObject:tag] && ![[FlickrImagesTableViewController invalidTags] containsObject:tag]) {
+                    [_uniqueTags addObject:tag];
+                }
+            }
+        }
     }
     return _uniqueTags;
 }
 
-- (void)viewDidLoad {
-    NSArray *pics = [[NSArray alloc] initWithArray:[FlickrFetcher stanfordPhotos]];
-    for (NSDictionary *dictionary in pics) {
-        NSString *tags = [dictionary objectForKey:FLICKR_TAGS];
-        NSArray *tagArray = [tags componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]];
-        for (NSString *tag in tagArray) {
-            if (![self.uniqueTags containsObject:tag] && ![[FlickrImagesTableViewController invalidTags] containsObject:tag]) {
-                [self.uniqueTags addObject:tag];
-            }
-        }
-    }
-    NSLog(@"%@", self.uniqueTags);
-}
 
 + (NSArray *)invalidTags {
     return @[@"cs193pspot", @"portrait", @"landscape"];
@@ -43,12 +38,11 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // TODO
-    return 0;
+    return [self.uniqueTags count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Image Browse Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
