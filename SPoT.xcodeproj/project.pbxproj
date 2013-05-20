@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC580BCE17492BCB001C585D /* FlickrImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC580BCD17492BCB001C585D /* FlickrImagesTableViewController.m */; };
+		AC580BD117492C19001C585D /* RecentImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC580BD017492C19001C585D /* RecentImagesTableViewController.m */; };
 		ACC1AE3817485B4400EBFDF6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC1AE3717485B4400EBFDF6 /* UIKit.framework */; };
 		ACC1AE3A17485B4400EBFDF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC1AE3917485B4400EBFDF6 /* Foundation.framework */; };
 		ACC1AE3C17485B4400EBFDF6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC1AE3B17485B4400EBFDF6 /* CoreGraphics.framework */; };
@@ -21,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC580BCC17492BCB001C585D /* FlickrImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrImagesTableViewController.h; sourceTree = "<group>"; };
+		AC580BCD17492BCB001C585D /* FlickrImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrImagesTableViewController.m; sourceTree = "<group>"; };
+		AC580BCF17492C19001C585D /* RecentImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentImagesTableViewController.h; sourceTree = "<group>"; };
+		AC580BD017492C19001C585D /* RecentImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentImagesTableViewController.m; sourceTree = "<group>"; };
 		ACC1AE3417485B4400EBFDF6 /* SPoT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPoT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC1AE3717485B4400EBFDF6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		ACC1AE3917485B4400EBFDF6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -86,6 +92,10 @@
 			children = (
 				ACC1AE5A1748634500EBFDF6 /* FlickrFetcher */,
 				ACC1AE4F17485B4400EBFDF6 /* MainStoryboard.storyboard */,
+				AC580BCF17492C19001C585D /* RecentImagesTableViewController.h */,
+				AC580BD017492C19001C585D /* RecentImagesTableViewController.m */,
+				AC580BCC17492BCB001C585D /* FlickrImagesTableViewController.h */,
+				AC580BCD17492BCB001C585D /* FlickrImagesTableViewController.m */,
 				ACC1AE3E17485B4400EBFDF6 /* Supporting Files */,
 			);
 			path = SPoT;
@@ -186,6 +196,8 @@
 				ACC1AE4417485B4400EBFDF6 /* main.m in Sources */,
 				ACC1AE4817485B4400EBFDF6 /* AppDelegate.m in Sources */,
 				ACC1AE5E1748634500EBFDF6 /* FlickrFetcher.m in Sources */,
+				AC580BCE17492BCB001C585D /* FlickrImagesTableViewController.m in Sources */,
+				AC580BD117492C19001C585D /* RecentImagesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
