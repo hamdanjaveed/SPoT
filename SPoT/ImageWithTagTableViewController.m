@@ -32,6 +32,9 @@
     return cell;
 }
 
+#define RECENT_PHOTOS @"recent photos array"
+#define MAX_RECENT_PHOTOS 20
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue
                  sender:(id)sender {
     if ([sender isKindOfClass:[UITableViewCell class]]) {
@@ -42,6 +45,21 @@
             NSDictionary *dictionary = self.photos[indexPath.row];
             destination.imageURL = [FlickrFetcher urlForPhoto:dictionary format:FlickrPhotoFormatLarge];
             destination.title = cell.textLabel.text;
+            
+            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+            NSMutableArray *recentPhotos = [[defaults objectForKey:RECENT_PHOTOS] mutableCopy];
+            if (!recentPhotos) {
+                recentPhotos = [[NSMutableArray alloc] init];
+            }
+            if ([recentPhotos containsObject:dictionary]) {
+                [recentPhotos removeObject:dictionary];
+            }
+            [recentPhotos insertObject:dictionary atIndex:0];
+            if ([recentPhotos count] > MAX_RECENT_PHOTOS) {
+                [recentPhotos removeLastObject];
+            }
+            [defaults setObject:[recentPhotos copy] forKey:RECENT_PHOTOS];
+            [defaults synchronize];
         }
     }
 }
