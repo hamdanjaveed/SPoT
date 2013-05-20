@@ -40,6 +40,13 @@
     }
 }
 
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    double horizontalRatio = self.scrollView.bounds.size.width / self.imageView.image.size.width;
+    double verticalRatio = self.scrollView.bounds.size.height / self.imageView.image.size.height;
+    self.scrollView.zoomScale = MAX(horizontalRatio, verticalRatio);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
