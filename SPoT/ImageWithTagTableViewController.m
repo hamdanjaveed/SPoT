@@ -8,6 +8,7 @@
 
 #import "ImageWithTagTableViewController.h"
 #import "FlickrFetcher.h"
+#import "ImageViewController.h"
 
 @interface ImageWithTagTableViewController ()
 
@@ -29,6 +30,20 @@
     cell.detailTextLabel.text = [[self.photos[indexPath.row] valueForKeyPath:FLICKR_PHOTO_DESCRIPTION] capitalizedString];
     
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender {
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        UITableViewCell *cell = sender;
+        if ([segue.identifier isEqualToString:@"Browse Show Image"]) {
+            ImageViewController *destination = segue.destinationViewController;
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+            NSDictionary *dictionary = self.photos[indexPath.row];
+            destination.imageURL = [FlickrFetcher urlForPhoto:dictionary format:FlickrPhotoFormatLarge];
+            destination.title = cell.textLabel.text;
+        }
+    }
 }
 
 @end

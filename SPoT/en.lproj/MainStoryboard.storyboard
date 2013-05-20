@@ -44,9 +44,21 @@
                     <view key="view" contentMode="scaleToFill" id="ShJ-VW-AKj">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HKH-80-zBB"/>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HKH-80-zBB" firstAttribute="bottom" secondItem="ShJ-VW-AKj" secondAttribute="bottom" type="default" id="OoW-ug-9gX"/>
+                            <constraint firstItem="HKH-80-zBB" firstAttribute="leading" secondItem="ShJ-VW-AKj" secondAttribute="leading" type="default" id="SKm-D8-SBN"/>
+                            <constraint firstItem="HKH-80-zBB" firstAttribute="trailing" secondItem="ShJ-VW-AKj" secondAttribute="trailing" type="default" id="abI-Ge-cJe"/>
+                            <constraint firstItem="HKH-80-zBB" firstAttribute="top" secondItem="ShJ-VW-AKj" secondAttribute="top" type="default" id="cyq-Wr-tTW"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="g9k-EK-83t"/>
+                    <connections>
+                        <outlet property="scrollView" destination="HKH-80-zBB" id="oDe-Xd-WLo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3sc-qV-eav" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -212,6 +224,9 @@
         </class>
         <class className="ImageWithTagTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ImageWithTagTableViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
         <class className="RecentImagesTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RecentImagesTableViewController.h"/>
