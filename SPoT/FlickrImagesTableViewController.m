@@ -10,6 +10,7 @@
 #import "FlickrFetcher.h"
 
 @interface FlickrImagesTableViewController ()
+@property (strong, nonatomic) NSArray *photos;
 @property (strong, nonatomic) NSMutableArray *uniqueTags;
 @end
 
@@ -18,8 +19,8 @@
 - (NSMutableArray *)uniqueTags {
     if (!_uniqueTags) {
         _uniqueTags = [[NSMutableArray alloc] init];
-        for (NSDictionary *dictionary in [FlickrFetcher stanfordPhotos]) {
-            NSArray *tagArray = [[dictionary objectForKey:FLICKR_TAGS] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]];
+        for (NSDictionary *dictionary in self.photos) {
+            NSArray *tagArray = [self getTagArrayForDictionary:dictionary];
             for (NSString *tag in tagArray) {
                 if (![_uniqueTags containsObject:tag] && ![[FlickrImagesTableViewController invalidTags] containsObject:tag]) {
                     [_uniqueTags addObject:tag];
@@ -28,6 +29,17 @@
         }
     }
     return _uniqueTags;
+}
+
+- (NSArray *)getTagArrayForDictionary:(NSDictionary *)dictionary {
+    return [[dictionary objectForKey:FLICKR_TAGS] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]];
+}
+
+- (NSArray *)photos {
+    if (!_photos) {
+        _photos = [FlickrFetcher stanfordPhotos];
+    }
+    return _photos;
 }
 
 
@@ -46,8 +58,21 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     cell.textLabel.text = [self.uniqueTags[indexPath.row] capitalizedString];
+    NSUInteger count = [self getNumberOfPhotosWithTag:self.uniqueTags[indexPath.row]];
+    cell.detailTextLabel.text = (count > 1) ? [NSString stringWithFormat:@"%d photos", count] : [NSString stringWithFormat:@"%d photo", count];
     
     return cell;
+}
+
+- (NSUInteger) getNumberOfPhotosWithTag:(NSString *)tag {
+    NSUInteger count = 0;
+    for (NSDictionary *photo in self.photos) {
+        NSArray *tagArray = [self getTagArrayForDictionary:photo];
+        if ([tagArray containsObject:tag]) {
+            count++;
+        }
+    }
+    return count;
 }
 
 @end
