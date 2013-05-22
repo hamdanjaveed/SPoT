@@ -23,6 +23,7 @@
     NSDictionary *results = jsonData ? [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers|NSJSONReadingMutableLeaves error:&error] : nil;
     if (error) NSLog(@"[%@ %@] JSON error: %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), error.localizedDescription);
     if (NSLOG_FLICKR) NSLog(@"[%@ %@] received %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), results);
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     return results;
 }
 
@@ -34,6 +35,8 @@
 
 + (NSArray *)stanfordPhotos
 {
+    UIApplication *app = [UIApplication sharedApplication];
+    [app setNetworkActivityIndicatorVisible:YES];
     NSString *request = @"http://api.flickr.com/services/rest/?user_id=48247111@N07&format=json&nojsoncallback=1&extras=original_format,tags,description,geo,date_upload,owner_name&page=1&method=flickr.photos.search";
     return [[self executeFlickrFetch:request] valueForKeyPath:@"photos.photo"];
 }

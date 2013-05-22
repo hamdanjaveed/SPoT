@@ -17,7 +17,10 @@
 
 @implementation FlickrImagesTableViewController
 
-@synthesize photos = _photos;
+- (void)viewDidLoad {
+    [self.refreshControl addTarget:self action:@selector(loadLatestPhotos) forControlEvents:UIControlEventValueChanged];
+    [self loadLatestPhotos];
+}
 
 - (NSMutableArray *)uniqueTags {
     if (!_uniqueTags) {
@@ -38,21 +41,24 @@
     return [[dictionary objectForKey:FLICKR_TAGS] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@" "]];
 }
 
-- (void)setPhotos:(NSArray *)photos {
-    _photos = photos;
-    self.uniqueTags = nil;
-    [self.tableView reloadData];
+- (void)loadLatestPhotos {
+    [self.refreshControl beginRefreshing];
+    dispatch_queue_t loadPhotosQ = dispatch_queue_create("load photos queue", NULL);
+    dispatch_async(loadPhotosQ, ^{
+        NSArray *latestStanfordPhotos = [FlickrFetcher stanfordPhotos];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self setPhotos:latestStanfordPhotos];
+            self.uniqueTags = nil;
+            [self.refreshControl endRefreshing];
+            [self.tableView reloadData];
+        });
+    });
 }
 
 - (NSArray *)photos {
     if (!_photos) {
-        dispatch_queue_t loadPhotosQ = dispatch_queue_create("load photos queue", NULL);
-        dispatch_async(loadPhotosQ, ^{
-            NSArray *latestStanfordPhotos = [FlickrFetcher stanfordPhotos];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self setPhotos:latestStanfordPhotos];
-            });
-        });
+        _photos = [[NSArray alloc] init];
+        [self loadLatestPhotos];
     }
     return _photos;
 }
