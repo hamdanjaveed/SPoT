@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 // the image view that holds the image
 @property (strong, nonatomic) UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @end
 
 @implementation ImageViewController
@@ -25,6 +26,8 @@
         // reset the scroll and image views
         self.scrollView.contentSize = CGSizeZero;
         self.imageView.image = nil;
+        
+        [self.activityIndicator startAnimating];
         
         // get the image and initialize the image view
         dispatch_queue_t getImageQ = dispatch_queue_create("load image", NULL);
@@ -40,6 +43,8 @@
                     
                     // set the scroll view's content size to match the image
                     self.scrollView.contentSize = image.size;
+                    
+                    [self.activityIndicator stopAnimating];
                 }
             });
         });
