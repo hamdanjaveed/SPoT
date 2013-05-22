@@ -33,7 +33,9 @@
         dispatch_queue_t getImageQ = dispatch_queue_create("load image", NULL);
         dispatch_async(getImageQ, ^{
             NSURL *url = self.imageURL;
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
             NSData *imageData = [NSData dataWithContentsOfURL:self.imageURL];
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
             dispatch_async(dispatch_get_main_queue(), ^{
                 UIImage *image = [UIImage imageWithData:imageData];
                 if (image && self.imageURL == url) {
