@@ -8,3 +8,7 @@ Version History
 
 0.0 
     - Created project
+
+1.0
+    - Can view images from Flickr
+    - Interface is responsive at all times
